@@ -1,4 +1,5 @@
 export class Book {
-  isbnId: number;
+  isbnId: string;
   title: string;
+  user: string;
 }

@@ -8,7 +8,7 @@ import {BookService} from '../book.service';
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent implements OnInit {
-  book: Book = { isbnId: 0, title: '' };
+  book: Book = { isbnId: '', title: '' ,  user: 'Admin'};
   books: Book[];
 
   selectedBook: Book;
@@ -17,15 +17,14 @@ export class BooksComponent implements OnInit {
     this.selectedBook = book;
   }
 
-  onAdd(isbnId: number, title: string): void {
-
-    this.bookService.addBook( {isbnId, title} as Book).subscribe(books => this.getBooks());
+  onAdd(isbnId: string, title: string, user: string): void {
+    this.bookService.addBook( {isbnId, title, user } as Book).subscribe(books => this.getBooks());
     this.clear();
   }
 
   clear(): void {
     this.book.title = '';
-    this.book.isbnId = 0;
+    this.book.isbnId = '';
   }
 
   constructor(private bookService: BookService) {

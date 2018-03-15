@@ -5,12 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BooksComponent } from './books/books.component';
 import {BookService} from './book.service';
+import {CommentsService} from './comments.service';
 import { HttpClientModule } from '@angular/common/http';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BooksComponent
+    BooksComponent,
+    BookDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    BookService
+    BookService,
+    CommentsService
   ],
   bootstrap: [AppComponent]
 })

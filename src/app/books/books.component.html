@@ -1,25 +1,17 @@
+
 <h2>Add a Book</h2>
 <input [(ngModel)]="book.isbnId" placeholder="Enter ISBN ID">
 <input [(ngModel)]="book.title" placeholder="Enter Title">
-<Button (click) = "onAdd(book.isbnId,book.title )"> Add </Button>
+<Button (click) = "onAdd(book.isbnId,book.title, book.user )"> Add </Button>
 
 <h2>My Books</h2>
 <ul class="books">
   <li *ngFor="let book of books"
       [class.selected]="book === selectedBook"
       (click)="onSelect(book)">
-    <span class="badge">{{book.isbnId}}</span> {{book.title}}
+    <span class="badge">{{book.isbnId}}</span> {{book.title}} {{book.user}}
   </li>
 </ul>
 
-<div *ngIf="selectedBook">
+<app-book-details [book]="selectedBook"></app-book-details>
 
-  <h2>{{ selectedBook.title | uppercase }} Details</h2>
-  <div><span>isbnId: </span>{{selectedBook.isbnId}}</div>
-  <div>
-    <label>title:
-      <input [(ngModel)]="selectedBook.title" placeholder="title">
-    </label>
-  </div>
-
-</div>

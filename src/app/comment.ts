@@ -1,5 +1,6 @@
 export class Comment {
-  bookId: number;
-  rating: number;
-  message: string;
+  bookId: string;
+  comment: string;
+  rating: string;
+  user: string;
 }
