@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {Comment} from './comment';
-import {CommentsByUser} from './commentsByUser';
+import {Comment} from '../comment';
+import {CommentsByUser} from '../commentsByUser';
 
 @Injectable()
 export class CommentsService {

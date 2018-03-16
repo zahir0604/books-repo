@@ -4,19 +4,21 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { BooksByUserComponent } from './booksByUser/booksByUser.component';
-import {BookService} from './book.service';
-import {CommentsService} from './comments.service';
+import {BookService} from './services/book.service';
+import {CommentsService} from './services/comments.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { CommentsByUserComponent } from './commentsByUser/commentsByUser.component';
+import { AllOtherBooksComponent } from './allOtherBooks/allOtherBooks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BooksByUserComponent,
     BookDetailsComponent,
-    CommentsByUserComponent
+    CommentsByUserComponent,
+    AllOtherBooksComponent
   ],
   imports: [
     BrowserModule,
