@@ -30,7 +30,7 @@ export class BookDetailsComponent implements OnInit {
   }
 
   getComments(bookId: string): void {
-    this.commentsService.getComments(bookId).subscribe(comments => this.comments = comments);
+    this.commentsService.getCommentsForBook(bookId).subscribe(comments => this.comments = comments);
   }
 
   clear(): void {

@@ -9,12 +9,14 @@ import {CommentsService} from './comments.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { CommentsComponent } from './comments/comments.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BooksComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,

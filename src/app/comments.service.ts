@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Book } from './book';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Comment} from './comment';
+import {CommentsByUser} from './commentsByUser';
 
 @Injectable()
 export class CommentsService {
@@ -13,9 +13,14 @@ export class CommentsService {
 
   constructor(private http: HttpClient) { }
 
-  getComments(bookId: string): Observable<Comment[]> {
+  getCommentsForBook(bookId: string): Observable<Comment[]> {
     return this.http.get<Comment[]>(this.url + '/' + bookId);
   }
+
+  getCommentsByUser(user: string): Observable<CommentsByUser[]> {
+    return this.http.get<CommentsByUser[]>(this.url + '/user/' + user);
+  }
+
 
   addComment (comment: Comment): Observable<Comment> {
     return this.http.post<Comment>(this.url, comment, httpOptions);
