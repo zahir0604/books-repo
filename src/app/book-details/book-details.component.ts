@@ -1,7 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Book} from '../book';
+import {Component, OnInit} from '@angular/core';
 import {CommentsService} from '../services/comments.service';
 import {Comment} from '../comment';
+
+import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
+
 
 @Component({
   selector: 'app-book-details',
@@ -10,23 +13,30 @@ import {Comment} from '../comment';
 })
 export class BookDetailsComponent implements OnInit {
 
-  constructor(private commentsService: CommentsService) {
+  constructor(private commentsService: CommentsService,
+              private route: ActivatedRoute,
+              private location: Location) {
   }
 
-  @Input() book: Book;
+  bookId: string;
+
+  title: string;
 
   comment: Comment = {bookId: '', comment: '', rating: '1', user: 'Admin'};
 
   comments: Comment[];
 
   onAdd(comment: Comment): void {
-    comment.bookId = this.book.isbnId;
+    comment.bookId = this.bookId;
     comment.user = 'Admin';
-    this.commentsService.addComment(comment).subscribe(comments => this.getComments(this.book.isbnId));
+    this.commentsService.addComment(comment).subscribe(comments => this.getComments(this.bookId));
     this.clear();
   }
 
   ngOnInit() {
+    this.bookId = this.route.snapshot.paramMap.get('bookId');
+    this.title = this.route.snapshot.paramMap.get('title');
+    this.getComments(this.bookId);
   }
 
   getComments(bookId: string): void {

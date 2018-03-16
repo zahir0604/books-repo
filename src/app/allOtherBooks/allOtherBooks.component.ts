@@ -14,23 +14,6 @@ export class AllOtherBooksComponent implements OnInit {
   books: Book[];
   @ViewChild(BookDetailsComponent) booksDetail: BookDetailsComponent;
 
-  selectedBook: Book;
-
-  onSelect(book: Book): void {
-    this.selectedBook = book;
-    this.booksDetail.getComments(book.isbnId);
-  }
-
-  onAdd(book: Book): void {
-    this.bookService.addBook( book).subscribe(books => this.getBooks(this.book.user));
-    this.clear();
-  }
-
-  clear(): void {
-    this.book.title = '';
-    this.book.isbnId = '';
-  }
-
   constructor(private bookService: BookService) {
   }
 

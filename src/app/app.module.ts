@@ -11,6 +11,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { CommentsByUserComponent } from './commentsByUser/commentsByUser.component';
 import { AllOtherBooksComponent } from './allOtherBooks/allOtherBooks.component';
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AllOtherBooksComponent } from './allOtherBooks/allOtherBooks.component'
   ],
   providers: [
     BookService,
-    CommentsService
+    CommentsService,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

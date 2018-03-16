@@ -1,13 +1,12 @@
 <h2>All Other Books</h2>
 <ul class="books">
-  <li *ngFor="let book of books"
-      [class.selected]="book === selectedBook"
-      (click)="onSelect(book)">
+  <li *ngFor="let book of books">
+    <a routerLink="/detail/{{book.isbnId}}/{{book.title}}">
     <span class="column1">{{book.isbnId}}</span>
     <span class="column2">{{book.title}} </span>
     <span class="column3">{{book.user}}</span>
+    </a>
   </li>
 </ul>
 
-<app-book-details [book]="selectedBook"></app-book-details>
 
