@@ -4,10 +4,10 @@ import { CommentsService } from '../comments.service';
 
 @Component({
   selector: 'app-comments',
-  templateUrl: './comments.component.html',
-  styleUrls: ['./comments.component.css']
+  templateUrl: './commentsByUser.component.html',
+  styleUrls: ['./commentsByUser.component.css']
 })
-export class CommentsComponent implements OnInit {
+export class CommentsByUserComponent implements OnInit {
 
   comments: CommentsByUser[] = [];
 
