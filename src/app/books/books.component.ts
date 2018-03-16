@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Book} from '../book';
 import {BookService} from '../book.service';
+import {BookDetailsComponent} from '../book-details/book-details.component';
 
 @Component({
   selector: 'app-books',
@@ -10,15 +11,17 @@ import {BookService} from '../book.service';
 export class BooksComponent implements OnInit {
   book: Book = { isbnId: '', title: '' ,  user: 'Admin'};
   books: Book[];
+  @ViewChild(BookDetailsComponent) booksDetail: BookDetailsComponent;
 
   selectedBook: Book;
 
   onSelect(book: Book): void {
     this.selectedBook = book;
+    this.booksDetail.getComments(book.isbnId);
   }
 
-  onAdd(isbnId: string, title: string, user: string): void {
-    this.bookService.addBook( {isbnId, title, user } as Book).subscribe(books => this.getBooks());
+  onAdd(book: Book): void {
+    this.bookService.addBook( book).subscribe(books => this.getBooks());
     this.clear();
   }
 

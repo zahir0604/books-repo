@@ -20,3 +20,68 @@ body, input[text], button {
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.books {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 50%;
+}
+.books li {
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.books .text {
+  position: relative;
+  top: -3px;
+}
+.books .column1 {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  width: 10%;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+.books .column2 {
+  display: inline-block;
+  font-size: small;
+  padding: 0.8em 0.7em 0 0.7em;
+  line-height: 1em;
+  position: relative;
+  float: inherit;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+  width: 40%;
+}
+
+.books .column3 {
+  display: inline-block;
+  font-size: small;
+  padding: 0.8em 0.7em 0 0.7em;
+  line-height: 1em;
+  position: relative;
+  float: right;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+  width: 10%;
+}

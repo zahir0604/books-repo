@@ -13,8 +13,16 @@ export class CommentsService {
 
   constructor(private http: HttpClient) { }
 
-  getComments(): Observable<Comment[]> {
-    return this.http.get<Comment[]>(this.url);
+  getComments(bookId: string): Observable<Comment[]> {
+    return this.http.get<Comment[]>(this.url + '/' + bookId);
+  }
+
+  addComment (comment: Comment): Observable<Comment> {
+    return this.http.post<Comment>(this.url, comment, httpOptions);
   }
 
 }
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
