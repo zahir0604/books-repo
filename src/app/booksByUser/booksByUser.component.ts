@@ -5,10 +5,10 @@ import {BookDetailsComponent} from '../book-details/book-details.component';
 
 @Component({
   selector: 'app-books',
-  templateUrl: './books.component.html',
-  styleUrls: ['./books.component.css']
+  templateUrl: './booksByUser.component.html',
+  styleUrls: ['./booksByUser.component.css']
 })
-export class BooksComponent implements OnInit {
+export class BooksByUserComponent implements OnInit {
   book: Book = { isbnId: '', title: '' ,  user: 'Admin'};
   books: Book[];
   @ViewChild(BookDetailsComponent) booksDetail: BookDetailsComponent;

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BooksComponent } from './books/books.component';
+import { BooksByUserComponent } from './booksByUser/booksByUser.component';
 import { CommentsByUserComponent } from './commentsByUser/commentsByUser.component';
 
 const routes: Routes = [
-  { path: 'books', component: BooksComponent},
+  { path: 'books', component: BooksByUserComponent},
   { path: 'commentsByUser', component: CommentsByUserComponent }
 
 ];

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { BooksComponent } from './books/books.component';
+import { BooksByUserComponent } from './booksByUser/booksByUser.component';
 import {BookService} from './book.service';
 import {CommentsService} from './comments.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,7 +14,7 @@ import { CommentsByUserComponent } from './commentsByUser/commentsByUser.compone
 @NgModule({
   declarations: [
     AppComponent,
-    BooksComponent,
+    BooksByUserComponent,
     BookDetailsComponent,
     CommentsByUserComponent
   ],
