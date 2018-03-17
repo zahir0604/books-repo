@@ -9,10 +9,11 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./booksByUser.component.css']
 })
 export class BooksByUserComponent implements OnInit {
-  book: Book = { isbnId: '', title: '' ,  user: 'Admin'};
-  books: Book[];
 
   user: string;
+
+  book: Book = { isbnId: '', title: '' ,  user: ''};
+  books: Book[];
 
 
   onAdd(book: Book): void {
@@ -31,6 +32,7 @@ export class BooksByUserComponent implements OnInit {
   ngOnInit() {
     this.user = this.route.snapshot.paramMap.get('user');
     this.getBooks( this.user);
+    this.book.user = this.user;
   }
 
   getBooks(user: string): void {

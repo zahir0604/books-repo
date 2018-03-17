@@ -12,7 +12,7 @@
 </div>
 
 <div *ngIf="validUser">
-<nav>
+<nav id="routes">
   <a routerLink="/books/{{validUser}}">My Books</a>
   <a routerLink="/commentsByUser/{{validUser}}">My comments</a>
   <a routerLink="/allOtherBooks/{{validUser}}">All Other Books</a>
