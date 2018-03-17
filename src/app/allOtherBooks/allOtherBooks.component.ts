@@ -1,7 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Book} from '../book';
 import {BookService} from '../services/book.service';
-import {BookDetailsComponent} from '../book-details/book-details.component';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-all-other-books',
@@ -12,12 +12,14 @@ export class AllOtherBooksComponent implements OnInit {
 
   book: Book = { isbnId: '', title: '' ,  user: 'Admin'};
   books: Book[];
-  @ViewChild(BookDetailsComponent) booksDetail: BookDetailsComponent;
 
-  constructor(private bookService: BookService) {
+  user: string;
+
+  constructor(private bookService: BookService,  private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.user = this.route.snapshot.paramMap.get( this.user);
     this.getBooks(this.book.user);
   }
 

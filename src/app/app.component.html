@@ -1,20 +1,23 @@
 
+<div *ngIf="!validUser">
 <h1> Welcome to the {{title}}! </h1>
-
+<br>
+<br>
 <div>
   <label>Enter user name:
-    <input [(ngModel)]="user" placeholder="Enter user name">
+    <input [(ngModel)]="user" placeholder="Enter user name" id="userName">
   </label>
-  <Button (click)="allow(user)"> Enter </Button>
+  <Button (click)="allow(user)" id="enter"> Enter </Button>
 </div>
-<br>
-<br>
+</div>
 
+<div *ngIf="validUser">
 <nav>
-  <a routerLink="/books">My Books</a>
-  <a routerLink="/commentsByUser">My comments</a>
-  <a routerLink="/allOtherBooks">All Other Books</a>
+  <a routerLink="/books/{{validUser}}">My Books</a>
+  <a routerLink="/commentsByUser/{{validUser}}">My comments</a>
+  <a routerLink="/allOtherBooks/{{validUser}}">All Other Books</a>
 </nav>
 
 <router-outlet></router-outlet>
 
+</div>

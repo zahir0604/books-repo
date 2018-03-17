@@ -13,6 +13,8 @@
   height: 1.6em;
   border-radius: 4px;
 }
+
+
 .books li.selected:hover {
   background-color: #BBD8DC !important;
   color: white;
@@ -22,4 +24,30 @@
   background-color: #DDD;
   left: .1em;
 }
+.books header {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
 
+.books {
+  width: 70%;
+}
+
+.books .user {
+  width: 10%;
+}
+
+
+.books .bookId {
+ width: 10%;
+}
+
+.books .title {
+  width: 60%;
+}

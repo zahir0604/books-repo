@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {Book} from '../book';
 import {Observable} from 'rxjs/Observable';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {of} from 'rxjs/observable/of';
+import {catchError} from 'rxjs/operators';
 
 @Injectable()
 export class BookService {
@@ -24,7 +26,21 @@ export class BookService {
   }
 
   addBook(book: Book): Observable<Book> {
-    return this.http.post<Book>(this.booksByUserUrl, book, httpOptions);
+    return this.http.post<Book>(this.booksByUserUrl, book, httpOptions).pipe(catchError(this.handleError<Book>('addBook')));
+  }
+
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      if (error.status === 400){
+        alert('Book already exists');
+        return;
+      }
+
+      console.error(error);
+
+      return of(result as T);
+    };
   }
 }
 

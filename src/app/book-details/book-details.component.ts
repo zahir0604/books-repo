@@ -3,7 +3,6 @@ import {CommentsService} from '../services/comments.service';
 import {Comment} from '../comment';
 
 import {ActivatedRoute} from '@angular/router';
-import {Location} from '@angular/common';
 
 
 @Component({
@@ -14,8 +13,7 @@ import {Location} from '@angular/common';
 export class BookDetailsComponent implements OnInit {
 
   constructor(private commentsService: CommentsService,
-              private route: ActivatedRoute,
-              private location: Location) {
+              private route: ActivatedRoute) {
   }
 
   bookId: string;

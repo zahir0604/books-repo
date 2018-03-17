@@ -8,16 +8,11 @@ import {CookieService} from 'angular2-cookie/core';
 })
 export class AppComponent implements OnInit {
   title = 'Books Repo';
-  user= '';
+
+  user: string;
+  validUser: string;
 
   constructor(private cookieService: CookieService) {
-  }
-
-  isUserLoggedIn(): boolean {
-    this.user = this.getCookie('user');
-    if (this.user !== '') {
-      return true;
-    }
   }
 
   allow(user: string): void {
@@ -25,12 +20,12 @@ export class AppComponent implements OnInit {
       alert('user cannot be empty');
       return;
     }
-
+    this.validUser = user;
     this.cookieService.put('user', user);
   }
 
   ngOnInit() {
-
+    this.validUser = this.getCookie('user');
   }
 
   getCookie(key: string) {

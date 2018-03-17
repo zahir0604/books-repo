@@ -1,15 +1,20 @@
 
 <h2>Add a Book</h2>
-<input [(ngModel)]="book.isbnId" placeholder="Enter ISBN ID">
-<input [(ngModel)]="book.title" placeholder="Enter Title">
-<Button (click) = "onAdd(book)"> Add </Button>
+<input [(ngModel)]="book.isbnId" placeholder="Enter ISBN ID" id="isbnID">
+<input [(ngModel)]="book.title" placeholder="Enter Title" id="title">
+<Button (click) = "onAdd(book)" id="add"> Add </Button>
 
 <h2>My Books</h2>
 <ul class="books">
+  <header>
+    <span class="bookId"> <b>ISBN ID ID</b> </span>
+    <span class="title"><b> Title </b></span>
+
+  </header>
   <li *ngFor="let book of books">
     <a routerLink="/detail/{{book.isbnId}}/{{book.title}}">
-    <span class="column1">{{book.isbnId}}</span>
-    <span class="column2">{{book.title}} </span>
+    <span class="bookId">{{book.isbnId}}</span>
+    <span class="title">{{book.title}} </span>
     </a>
   </li>
 </ul>

@@ -1,23 +1,29 @@
 
   <h2>{{title}}</h2>
   <h2>Add Your comments</h2>
-  <input [(ngModel)]="comment.comment" placeholder="Add your comments here">
-
-  <select [(ngModel)]="comment.rating">
+  <textarea rows="4" cols="50" [(ngModel)]="comment.comment" placeholder="Add your comments here" id="comment">
+  </textarea>
+  <span> <h2>Your rating</h2>
+  <select [(ngModel)]="comment.rating" id="rating">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
     <option value="4">4</option>
     <option value="5">5</option>
   </select>
-  <Button (click)="onAdd(comment)"> Add</Button>
-
+  <Button (click)="onAdd(comment)" id="add"> Add</Button></span> <br><br>
 
   <ul class="books">
+    <li>
+      <span class="rating"> <b>Rating</b> </span>
+      <span class="comment"><b> comment </b></span>
+      <span class="user"> <b>user</b> </span>
+
+    </li>
     <li *ngFor="let comment of comments">
-      <span class="column1"> {{comment.rating}} </span>
-      <span class="column2"> {{comment.comment}} </span>
-      <span class="column3"> {{comment.user}} </span>
+      <span class="rating"> {{comment.rating}} </span>
+      <span class="comment"> {{comment.comment}} </span>
+      <span class="user"> {{comment.user}} </span>
     </li>
   </ul>
 

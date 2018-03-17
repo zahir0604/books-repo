@@ -1,7 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Book} from '../book';
 import {BookService} from '../services/book.service';
-import {BookDetailsComponent} from '../book-details/book-details.component';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-books-by-user',
@@ -11,14 +11,9 @@ import {BookDetailsComponent} from '../book-details/book-details.component';
 export class BooksByUserComponent implements OnInit {
   book: Book = { isbnId: '', title: '' ,  user: 'Admin'};
   books: Book[];
-  @ViewChild(BookDetailsComponent) booksDetail: BookDetailsComponent;
 
-  selectedBook: Book;
+  user: string;
 
-  onSelect(book: Book): void {
-    this.selectedBook = book;
-    this.booksDetail.getComments(book.isbnId);
-  }
 
   onAdd(book: Book): void {
     this.bookService.addBook( book).subscribe(books => this.getBooks(this.book.user));
@@ -30,11 +25,12 @@ export class BooksByUserComponent implements OnInit {
     this.book.isbnId = '';
   }
 
-  constructor(private bookService: BookService) {
+  constructor(private bookService: BookService,  private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.getBooks(this.book.user);
+    this.user = this.route.snapshot.paramMap.get('user');
+    this.getBooks( this.user);
   }
 
   getBooks(user: string): void {

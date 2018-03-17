@@ -24,7 +24,7 @@ body, input[text], button {
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
-  width: 50%;
+  width: 100%;
 }
 .books li {
   position: relative;
@@ -39,7 +39,7 @@ body, input[text], button {
   position: relative;
   top: -3px;
 }
-.books .column1 {
+.books .bookId {
   display: inline-block;
   font-size: small;
   color: white;
@@ -47,7 +47,7 @@ body, input[text], button {
   background-color: #607D8B;
   line-height: 1em;
   position: relative;
-  width: 10%;
+  width: 5%;
   left: -1px;
   top: -4px;
   height: 1.8em;
@@ -55,32 +55,77 @@ body, input[text], button {
   border-radius: 4px 0 0 4px;
 }
 
-.books .column2 {
+.books .title {
   display: inline-block;
   font-size: small;
   padding: 0.8em 0.7em 0 0.7em;
   line-height: 1em;
   position: relative;
-  float: inherit;
   left: -1px;
   top: -4px;
   height: 1.8em;
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
-  width: 40%;
+  width: 20%;
 }
 
-.books .column3 {
+.books .rating {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  width: 5%;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+.books .comment {
   display: inline-block;
   font-size: small;
   padding: 0.8em 0.7em 0 0.7em;
   line-height: 1em;
   position: relative;
-  float: right;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+  width: 50%;
+}
+
+.books .user {
+  display: inline-block;
+  font-size: small;
+  padding: 0.8em 0.7em 0 0.7em;
+  line-height: 1em;
+  position: relative;
   left: -1px;
   top: -4px;
   height: 1.8em;
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
   width: 10%;
+}
+
+
+a {
+  text-decoration: none;
+  background-color: #eee;
+  border-radius: 4px;
+}
+a:visited, a:link {
+  color: #607D8B;
+}
+a:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+a.active {
+  color: #039be5;
 }
