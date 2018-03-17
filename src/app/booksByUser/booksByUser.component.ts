@@ -16,7 +16,7 @@ export class BooksByUserComponent implements OnInit {
 
 
   onAdd(book: Book): void {
-    this.bookService.addBook( book).subscribe(books => this.getBooks(this.book.user));
+    this.bookService.addBook( book).subscribe(books => this.getBooks(this.user));
     this.clear();
   }
 

@@ -10,7 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class AllOtherBooksComponent implements OnInit {
 
-  book: Book = { isbnId: '', title: '' ,  user: 'Admin'};
+  book: Book = { isbnId: '', title: '' ,  user: ''};
   books: Book[];
 
   user: string;
@@ -19,8 +19,8 @@ export class AllOtherBooksComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = this.route.snapshot.paramMap.get( this.user);
-    this.getBooks(this.book.user);
+    this.user = this.route.snapshot.paramMap.get( 'user');
+    this.getBooks(this.user );
   }
 
   getBooks(user: string): void {
