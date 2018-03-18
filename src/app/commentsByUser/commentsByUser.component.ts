@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommentsByUser } from '../commentsByUser';
 import { CommentsService } from '../services/comments.service';
-import {ActivatedRoute} from '@angular/router';
+import {CookieService} from 'angular2-cookie/core';
 
 @Component({
   selector: 'app-comments',
@@ -14,10 +14,10 @@ export class CommentsByUserComponent implements OnInit {
 
   user: string;
 
-  constructor(private commmentsService: CommentsService,  private route: ActivatedRoute) { }
+  constructor(private commmentsService: CommentsService, private cookieService: CookieService) { }
 
   ngOnInit() {
-    this.user = this.route.snapshot.paramMap.get( 'user');
+    this.user = this.cookieService.get('user');
     this.getComments(this.user);
   }
 
