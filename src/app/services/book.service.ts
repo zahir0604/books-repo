@@ -4,13 +4,14 @@ import {Observable} from 'rxjs/Observable';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {of} from 'rxjs/observable/of';
 import {catchError} from 'rxjs/operators';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class BookService {
 
-  private booksByUserUrl = 'http://localhost:8080/1.0/books';
+  private booksByUserUrl = environment.apiUrl + '/books';
 
-  private allOtherBooksUrl = 'http://localhost:8080/1.0/allotherbooks';
+  private allOtherBooksUrl = environment.apiUrl + '/allotherbooks';
 
   books: Book[] = [];
 

@@ -3,11 +3,12 @@ import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Comment} from '../comment';
 import {CommentsByUser} from '../commentsByUser';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class CommentsService {
 
-  private url = 'http://localhost:8080/1.0/comments';
+  private url = environment.apiUrl + '/comments';
 
   comments: Comment[];
 
