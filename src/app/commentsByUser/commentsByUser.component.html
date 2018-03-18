@@ -1,12 +1,12 @@
 <h2>My Comments</h2>
 <ul class="books">
-  <li>
+  <header id="booksHeader">
     <span class="bookId"> <b>Book ID</b> </span>
     <span class="title"><b> Title </b></span>
     <span class="comment"> <b>Comment</b> </span>
     <span class="rating"> <b>Rating </b></span>
 
-  </li>
+  </header>
   <li *ngFor="let comment of comments">
     <span class="bookId"> {{comment.bookId}} </span>
     <span class="title"> {{comment.title}} </span>

@@ -1,11 +1,11 @@
 <h2>All Other Books</h2>
 <ul class="books">
-  <header>
+  <header id="booksHeader">
     <span class="bookId"> <b>ISBN ID</b> </span>
     <span class="title"><b> Title </b></span>
     <span class="user"><b> User </b></span>
   </header>
-  <li *ngFor="let book of books">
+  <li *ngFor="let book of books" id="booksList">
     <a routerLink="/detail/{{book.isbnId}}/{{book.title}}">
     <span class="bookId">{{book.isbnId}}</span>
     <span class="title">{{book.title}} </span>

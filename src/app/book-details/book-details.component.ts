@@ -3,6 +3,7 @@ import {CommentsService} from '../services/comments.service';
 import {Comment} from '../comment';
 
 import {ActivatedRoute} from '@angular/router';
+import {CookieService} from "angular2-cookie/core";
 
 
 @Component({
@@ -13,7 +14,7 @@ import {ActivatedRoute} from '@angular/router';
 export class BookDetailsComponent implements OnInit {
 
   constructor(private commentsService: CommentsService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute, private cookieService: CookieService) {
   }
 
   bookId: string;
@@ -26,7 +27,7 @@ export class BookDetailsComponent implements OnInit {
 
   onAdd(comment: Comment): void {
     comment.bookId = this.bookId;
-    comment.user = 'Admin';
+    comment.user = this.cookieService.get('user');
     this.commentsService.addComment(comment).subscribe(comments => this.getComments(this.bookId));
     this.clear();
   }
