@@ -14,13 +14,13 @@
   <Button (click)="onAdd(comment)" id="add"> Add</Button></span> <br><br>
 
   <ul class="books">
-    <li>
+    <header id="commentsHeader">
       <span class="rating"> <b>Rating</b> </span>
       <span class="comment"><b> comment </b></span>
       <span class="user"> <b>user</b> </span>
 
-    </li>
-    <li *ngFor="let comment of comments">
+    </header>
+    <li *ngFor="let comment of comments" id="commentsList">
       <span class="rating"> {{comment.rating}} </span>
       <span class="comment"> {{comment.comment}} </span>
       <span class="user"> {{comment.user}} </span>
