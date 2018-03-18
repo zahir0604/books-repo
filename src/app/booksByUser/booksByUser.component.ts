@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Book} from '../book';
 import {BookService} from '../services/book.service';
 import {ActivatedRoute} from '@angular/router';
+import {CookieService} from "angular2-cookie/core";
 
 @Component({
   selector: 'app-books-by-user',
@@ -26,11 +27,11 @@ export class BooksByUserComponent implements OnInit {
     this.book.isbnId = '';
   }
 
-  constructor(private bookService: BookService,  private route: ActivatedRoute) {
+  constructor(private bookService: BookService,  private cookieService: CookieService) {
   }
 
   ngOnInit() {
-    this.user = this.route.snapshot.paramMap.get('user');
+    this.user = this.cookieService.get('user');
     this.getBooks( this.user);
     this.book.user = this.user;
   }
