@@ -1,5 +1,5 @@
 
-  <h2>{{title}}</h2>
+  <h1>{{title}}</h1>
   <h2>Add Your comments</h2>
   <textarea rows="4" cols="50" [(ngModel)]="comment.comment" placeholder="Add your comments here" id="comment">
   </textarea>
@@ -16,8 +16,8 @@
   <ul class="books">
     <header id="commentsHeader">
       <span class="rating"> <b>Rating</b> </span>
-      <span class="comment"><b> comment </b></span>
-      <span class="user"> <b>user</b> </span>
+      <span class="comment"><b>Comment </b></span>
+      <span class="user"> <b>User</b> </span>
 
     </header>
     <li *ngFor="let comment of comments" id="commentsList">
