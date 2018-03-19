@@ -9,9 +9,9 @@ import {environment} from '../../environments/environment';
 @Injectable()
 export class BookService {
 
-  private booksByUserUrl = environment.apiUrl + '/books';
+  booksByUserUrl = environment.apiUrl + '/books';
 
-  private allOtherBooksUrl = environment.apiUrl + '/allotherbooks';
+  allOtherBooksUrl = environment.apiUrl + '/allotherbooks';
 
   books: Book[] = [];
 
@@ -33,7 +33,7 @@ export class BookService {
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
-      if (error.status === 400){
+      if (error.status === 400) {
         alert('Book already exists');
         return;
       }

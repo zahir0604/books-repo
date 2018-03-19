@@ -8,7 +8,7 @@ import {environment} from '../../environments/environment';
 @Injectable()
 export class CommentsService {
 
-  private url = environment.apiUrl + '/comments';
+  url = environment.apiUrl + '/comments';
 
   comments: Comment[];
 

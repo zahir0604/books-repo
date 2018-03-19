@@ -11,8 +11,8 @@ import {CookieService} from 'angular2-cookie/services/cookies.service';
 import {By} from '@angular/platform-browser';
 
 describe('AppComponent', () => {
-  let testAppComponent: AppComponent;
-  let testAppFixure: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -29,67 +29,65 @@ describe('AppComponent', () => {
   }));
 
   beforeEach(() => {
-    testAppFixure = TestBed.createComponent(AppComponent);
-    testAppComponent = testAppFixure.componentInstance;
-    testAppFixure.detectChanges();
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
 
   it('should create the app component', async(() => {
-    expect(testAppComponent).toBeTruthy();
+    expect(component).toBeTruthy();
   }));
 
   it(`should have as title 'Books repo'`, async(() => {
-    expect(testAppComponent.title).toEqual('Books Repo');
+    expect(component.title).toEqual('Books Repo');
   }));
 
   it('should render title Welcome to the Books Repo!', async(() => {
-    const page = testAppFixure.nativeElement;
+    const page = fixture.nativeElement;
     expect(page.querySelector('h1').textContent).toContain('Welcome to the Books Repo!');
   }));
 
 
-  it('should prompt to enter username', async(() => {
-    const page = testAppFixure.nativeElement;
+  it('should have the label enter username', async(() => {
+    const page = fixture.nativeElement;
     expect(page.querySelector('label').textContent).toContain('Enter user name:');
   }));
 
   it('should be able to set username', async(() => {
-    const text = testAppFixure.debugElement.query(By.css('input')).nativeElement;
+    const text = fixture.debugElement.nativeElement.querySelector('#userName');
     text.value = 'someValue';
     text.dispatchEvent(new Event('input'));
-    expect(testAppComponent.user).toBe('someValue');
+    expect(component.user).toBe('someValue');
   }));
 
 
   it('should have an Enter button', async(() => {
-    const page = testAppFixure.nativeElement;
+    const page = fixture.nativeElement;
     expect(page.querySelector('Button')).toBeTruthy();
     expect(page.querySelector('Button').textContent).toContain('Enter');
   }));
 
   it('on succesfull login allow method should be called', async(() => {
-    const spy = spyOn(testAppComponent, 'allow');
-    testAppFixure.detectChanges();
-    const input = testAppFixure.debugElement.query(By.css('input')).nativeElement;
+    spyOn(component, 'allow');
+    const input = fixture.debugElement.nativeElement.querySelector('#userName');
     input.value = 'new value';
     input.dispatchEvent(new Event('input'));
-    expect(testAppComponent.user).toBe('new value');
-    const button = testAppFixure.debugElement.nativeElement.querySelector('button');
+    const button = fixture.debugElement.nativeElement.querySelector('#enter');
     button.click();
-    expect(spy).toHaveBeenCalled();
+    expect(component.allow).toHaveBeenCalled();
   }));
 
   it('user should be added to cookie', async(() => {
-    testAppComponent.allow('New User');
-    testAppFixure.detectChanges();
-    expect(testAppComponent.getCookie('user')).toBe('New User');
+    component.allow('New User');
+    fixture.detectChanges();
+    expect(component.getCookie('user')).toBe('New User');
   }));
 
   it('Should return alert message for blank user name', async(() => {
     spyOn(window, 'alert');
-    testAppComponent.allow(' ');
-    testAppFixure.detectChanges();
+    component.allow(' ');
+    fixture.detectChanges();
     expect(window.alert).toHaveBeenCalledWith('user cannot be empty');
   }));
 
